@@ -8,6 +8,7 @@ Created on Sun Nov 30 21:29:39 2014
 import pandas
 import numpy as np
 from sklearn import cross_validation
+from sklearn.linear_model import LogisticRegression
 
 
 wine = pandas.read_csv("wine.data", header=None)
@@ -23,3 +24,10 @@ label_array=label_array.ravel()
 
 
 data_train, data_test, label_train, label_test = cross_validation.train_test_split(data_array,label_array)
+
+clf = LogisticRegression().fit(data_train,label_train)
+clf.predict(data_test)
+label_test
+
+
+
