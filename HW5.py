@@ -25,9 +25,16 @@ label_array=label_array.ravel()
 
 data_train, data_test, label_train, label_test = cross_validation.train_test_split(data_array,label_array)
 
-clf = LogisticRegression().fit(data_train,label_train)
-clf.predict(data_test)
+regression = LogisticRegression().fit(data_train,label_train)
+prediction = regression.predict(data_test)
 label_test
 
+i = 0
+count = 0
+while i <= 44:
+    if prediction[i] == label_test[i]:
+        count += 1
+    i+=1
 
-
+print "Number of correct predictions: "
+print count
